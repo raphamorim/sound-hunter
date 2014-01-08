@@ -1,0 +1,181 @@
+/* app css stylesheet */
+body {
+  background: url('../img/bg.jpg') repeat;
+  color: white;
+  font-family: Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: 45px;
+  letter-spacing: 0.05em;
+  text-shadow: 0px 0px 50px black;
+}
+
+h1 span {
+  color: #b1c3d4;
+}
+
+h3 {
+  padding: 0px;
+  letter-spacing: .05em;
+  text-shadow:0px 0px 3px black;
+  margin-top: -15px;
+}
+
+#container {
+  position: relative;
+  margin: 0px auto;
+  width: 920px;
+}
+
+.main {
+  position: relative;
+  margin-top: 200px;
+  text-align: center;
+}
+
+.searchBox {
+  width: 200px;
+  height: 25px;
+  padding: 5px;
+  box-shadow: 0px 0px 5px black;
+  border: none;
+  font-family: helvetica, sans-serif;
+  font-size: 20px;
+}
+
+.wrapper {
+  position: relative;
+  margin: 0px auto;
+  width: 920px;
+}
+
+.dot {
+  height: 2em;
+  width: 0.7em;
+  position: absolute;
+  display: inline-block;
+  background: rgba(189,195,199,.5);
+  margin: 0.3em .1em;
+  border-radius: 6px;
+  bottom: 0;
+  top: -.5em;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.4);
+  transition: all .9s ease-in;
+}
+
+.sound:hover, .share:hover{
+  opacity: 0.8;
+}
+
+.sound {
+  width: 100px;
+  height: 105px;
+  background: #3d576e url('../img/mic.png') no-repeat 50% 55%;
+  background-size: 80% 80%;
+  display: block;
+  float: left;
+  transition:all 400ms ease;
+  box-shadow:
+    0px 5px #2b3d4d,
+    0px 8px 35px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.sound img {
+  margin-top: 10px;
+  height: 100px;
+}
+
+.share {
+  width: 45px;
+  height: 105px;
+  background: #00a700;
+  margin-left: 15px;
+
+  display: block;
+  transition:all 400ms ease;
+  float: left;
+  box-shadow:
+    0px 5px #006c00,
+    0px 8px 35px rgba(0, 0, 0, 0.5);
+}
+
+.share img {
+  margin-top: 40px;
+  width: 25px;
+}
+
+form {
+  width: 200px;
+  height: 40px;
+  margin: 0px auto;
+  position: relative;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  padding: 20px;
+  width: 95%;
+  letter-spacing: 0.09em;
+  text-align: center;
+}
+
+footer a {
+  color: lightblue;
+  text-decoration: none;
+}
+
+.love {
+  display: inline-block;
+  position: relative;
+  top: .2em;
+  font-size: 1.4em;
+  color: #e74c3c;
+  text-shadow:0px 0px 10px black;
+  -webkit-transform: scale(.9);
+  -moz-transform: scale(.9);
+  transform: scale(.9);
+  -webkit-animation: love .5s infinite linear alternate-reverse;
+  -moz-animation: love .5s infinite linear alternate-reverse;
+  animation: love .5s infinite linear alternate-reverse;
+}
+
+@-webkit-keyframes love {
+  to {-webkit-transform: scale(1.2);}
+}
+@-moz-keyframes love {
+  to {-moz-transform: scale(1.2);}
+}
+@keyframes love {
+  to {transform: scale(1.2);}
+}
+
+.mic-img {
+  position: relative;
+  z-index: 0;
+}
+
+#mic-input {
+  position: relative;
+  color: transparent;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  width: 15px;
+  margin: 45px 36px;
+  outline: none;
+  -webkit-transform: scale(5.0, 5.0);
+  -moz-transform: scale(5.0, 5.0);
+  -ms-transform: scale(5.0, 5.0);
+  transform: scale(5.0, 5.0);
+  opacity: 0;
+  z-index: 1;
+}
+
+@media only screen and (max-height: 620px) {
+  footer {
+    display: none;
+  }
+}
