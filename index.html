@@ -68,6 +68,9 @@
       <div class="dot"></div>
   </div>
 
+  <div id="screen">
+    <a href="#" title="Set Full Screen"><img src="img/icon-fullscreen-128.png" height="35"></a>
+  </div>
 
   <div id="container">
 
@@ -78,7 +81,7 @@
 
         <form class="search" ng-controller="Form">
           <a class="sound">
-            <input id="mic-input" type="text" onspeechchange="sayThis(this.value)"
+            <input id="mic-input" lang="en" type="text" onspeechchange="sayThis(this.value)"
             onwebkitspeechchange="sayThis(this.value)" x-webkit-speech >
           </a>
 
@@ -92,9 +95,10 @@
     <div id='results'></div>
 
   </div>
- <footer>
+  <footer>
     Sound Hunter has been made with <span class='love'>♥</span> by
-    <a href='http://github.com/raphamorim' target="_blank" />Raphamorim</a>.
+    <a href='http://github.com/raphamorim' target="_blank" />Raphamorim</a> and powered by
+    <a href='http://youtube.com/' target="_blank" />YouTube</a>.
   </footer>
 
 </body>

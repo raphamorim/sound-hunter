@@ -28,6 +28,13 @@ h3 {
   width: 920px;
 }
 
+#screen {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  padding: 10px;
+}
+
 .main {
   position: relative;
   margin-top: 200px;
@@ -188,15 +195,18 @@ footer a {
   margin: 0px 5px 20px 5px;
   background: rgba(0,0,0, .2);
   box-shadow: 0px 0px 4px #000;
+  cursor: pointer;
+  font-size: 14px;
   transition: all 600ms ease;
 }
+#results p:hover { box-shadow: 0px 0px 15px #000; }
+#results p:last-child { margin-bottom: 20px; }
 
 #results a {
   color: #fff;
   font-family: verdana, arial;
   letter-spacing: 0.04em;
   text-decoration: none;
-  font-size: 14px;
 }
 
 #results img {
@@ -204,12 +214,35 @@ footer a {
   padding-bottom: 6px;
 }
 
-#results p:hover {
-  box-shadow: 0px 0px 15px #000;
+#reSearch {
+  padding: 20px 30px;
+  background: rgba(0,0,0, .4);
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: Helvetica, arial;
+  text-shadow: 0px 0px 3px #000;
+  transition: all 200ms ease;
+}
+
+#reSearch:hover {
+  box-shadow: 0px 0px 10px black;
 }
 
 @media only screen and (max-height: 620px) {
   footer {
     display: none;
   }
+}
+
+html:-moz-full-screen {
+    background: url('../img/bg.jpg') repeat;
+}
+
+html:-webkit-full-screen {
+    background: url('../img/bg.jpg') repeat;
+}
+
+html:fullscreen {
+    background: url('../img/bg.jpg') repeat;
 }
