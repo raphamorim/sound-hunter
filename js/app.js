@@ -1,30 +1,43 @@
+
+
+
 function sayThis(speech)
 {
-    alert("Beginning the hunt for: " + speech);
+    //Start a animation of loading search
 
-    url = 'musics.json';
+    var query = speech
+      , url = 'http://gdata.youtube.com/feeds/api/videos?q=' + query + '&alt=json&max-results=15';
 
-    $.ajax({
-        type: "GET",
-        url: url,
-        dataType: 'json',
-        success: function ( response ) {
-            cont = 0;
+    $.getJSON(url, function (data) {
 
-            json = response.musics;
+        var feed = data.feed;
+        var entries = feed.entry || [];
+        var results = [];
 
-            $.each(json, function(index, music){
-                if(speech.toUpperCase() == music.Name.toUpperCase()){
-                    alert(music.Name + " - by " + music.Artist);
-                    cont++;
-                }
-         });
+        console.log(query);
 
-         if(cont == 0)
-            alert("No music found, may not exist in the database.")
+        for (var i = 0; i < entries.length; i++) {
+            var entry = entries[i];
+            var title = entry.title.$t;
+            var link = entry.link[0].href;
+            var thumb = entry.media$group.media$thumbnail[0].url;
 
-         cont = 0;
-      }
+            if (entry.category[1].term === "Music")
+                results += '<p><img src="' + thumb + '"/><br><a href="' + link + '" target="_blank">' + title.substring(0,60); + '</a></p>';
+        }
 
-     });
+        if (results.length > 0) {
+
+            $('footer').hide();
+            $('.search').fadeOut(300, function(){
+                $('#results').fadeIn(2000).css('margin-top', '40px').html(results);
+            });
+
+        }
+        else {
+            $('#results').fadeIn(2000).html('<br>No results found, please try again');
+        }
+
+    });
+
 }
