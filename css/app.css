@@ -137,9 +137,9 @@ footer a {
   -webkit-transform: scale(.9);
   -moz-transform: scale(.9);
   transform: scale(.9);
-  -webkit-animation: love .2s infinite linear alternate-reverse;
-  -moz-animation: love .2s infinite linear alternate-reverse;
-  animation: love .2s infinite linear alternate-reverse;
+  -webkit-animation: love .5s infinite linear alternate-reverse;
+  -moz-animation: love .5s infinite linear alternate-reverse;
+  animation: love .5s infinite linear alternate-reverse;
 }
 
 @-webkit-keyframes love {
