@@ -1,12 +1,5 @@
 {
   "name": "sound-hunter",
-  "description": "Encontre músicas em menos de 5 minutos",
-  "repository": "https://github.com/raphamorim/sound-hunter",
-  "devDependencies": {
-    "phantomjs" : "~1.9",
-    "karma" : "~0.10",
-    "karma-junit-reporter" : "~0.1",
-    "karma-jasmine" : "~0.1",
-    "karma-ng-scenario" : "~0.1"
-  }
+  "description": "Increase speed for search, find songs in less than 5 minutes",
+  "repository": "https://github.com/raphamorim/sound-hunter"
 }

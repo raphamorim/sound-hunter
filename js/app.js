@@ -7,6 +7,7 @@ function sayThis(speech)
     $.ajax({
   		type: "GET",
   		url: url,
+        dataType: 'json',
   		success: function ( response ) {
   			cont = 0;
 
@@ -21,7 +22,6 @@ function sayThis(speech)
 
          if(cont == 0)
          	alert("No music found, may not exist in the database.")
-
 
          cont = 0;
       }
