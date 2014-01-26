@@ -28,7 +28,7 @@ h3 {
   width: 920px;
 }
 
-#screen {
+#topRight {
   position: absolute;
   top: 0%;
   right: 0%;
@@ -233,6 +233,8 @@ footer a {
   footer {
     display: none;
   }
+  #gitHub { display: none; }
+
 }
 
 html:-moz-full-screen {

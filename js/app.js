@@ -27,8 +27,6 @@ function sayThis(speech)
                 results += '<p videoid="' + file + '" ><img src="' + thumb + '"/>' +
                     '<br>' + title.substring(0,60); + '</p>';
 
-            if (screenStatus === 1 && i >= 3)
-                break;
         }
 
         $('footer').hide();
@@ -82,11 +80,13 @@ function exitFullscreen() {
 
 $('#screen').click(function(){
     if (screenStatus === 0) {
-        launchFullScreen(document.querySelector('body'));
-        $(this).html('<a href="#" title="Exit Full Screen"><img src="img/icon-fullscreen_exit-128.png" height="35"></a>');
+        launchFullScreen(document.querySelector('html'));
+        $(this).prop('title', 'Exit full screen');
+        $(this).html('<img src="img/icon-fullscreen_exit-128.png" height="35">');
     }
     else {
         exitFullscreen();
-        $(this).html('<a href="#" title="Set Full Screen"><img src="img/icon-fullscreen-128.png" height="35"></a>');
+        $(this).prop('title', 'Set full screen');
+        $(this).html('<img src="img/icon-fullscreen-128.png" height="35">');
     }
 });
