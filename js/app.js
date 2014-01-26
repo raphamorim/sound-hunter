@@ -5,7 +5,7 @@ function sayThis(speech)
     //Start a animation of loading search
 
     var query = speech
-      , url = 'http://gdata.youtube.com/feeds/api/videos?q=' + query + '&alt=json&max-results=15';
+      , url = 'http://gdata.youtube.com/feeds/api/videos?q=' + query + '&alt=json&max-results=20';
 
     $.getJSON(url, function (data) {
 
