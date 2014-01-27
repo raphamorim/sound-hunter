@@ -34,6 +34,8 @@ h3 {
   right: 0%;
   padding: 10px;
 }
+#topRight a { transition: all 300ms ease; }
+#topRight a:hover { opacity: .7; }
 
 .main {
   position: relative;

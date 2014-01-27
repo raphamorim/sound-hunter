@@ -2,16 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <title>Sound Hunter</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Find songs in less than 5 minutes. A Chrome experiment.">
+  <meta name="keywords" content="songs, search, youtube, api, jquery, speech, musics">
+  <meta name="author" content="Raphael Amorim">
+
+  <!-- Facebook -->
   <meta property="og:title" content="Sound Hunter"/>
   <meta property="og:site_name" content="Sound Hunter"/>
   <meta property="og:url" content="raphamorim.com/sound-hunter/"/>
   <meta property="og:image" content="img/fb-share.png"/>
   <meta property="og:description" content="Increase speed for search, find songs in less than 5 minutes"/>
 
-  <title>Sound Hunter</title>
+  <!-- CSS -->
   <link rel="stylesheet" href="css/app.css"/>
   <link rel="stylesheet" href="css/gauge.css"/>
+
+  <!-- Favicon -->
   <link rel='shortcut icon' href='img/favicon.ico' />
 </head>
 <body>
@@ -94,7 +102,7 @@
         <form class="search" ng-controller="Form">
           <a class="sound">
             <input id="mic-input" lang="en" type="text" onspeechchange="sayThis(this.value)"
-            onwebkitspeechchange="sayThis(this.value)" x-webkit-speech >
+            onwebkitspeechchange="sayThis(this.value)" x-webkit-speech>
           </a>
 
           <a class="share">
