@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="utf-8">
   <title>Sound Hunter</title>
@@ -12,7 +12,6 @@
   <meta property="og:title" content="Sound Hunter"/>
   <meta property="og:site_name" content="Sound Hunter"/>
   <meta property="og:url" content="raphamorim.com/sound-hunter/"/>
-  <meta property="og:image" content="img/fb-share.jpg"/>
   <meta property="og:description" content="Increase speed for search, find songs in less than 5 minutes"/>
 
   <!-- CSS -->
@@ -99,17 +98,19 @@
       <h1>Sound <span>Hunter</span></h1>
       <h3>Increase speed for search, finding songs in less than 5 minutes</h3>
 
-        <form class="search" ng-controller="Form">
+        <form class="search">
           <a class="sound">
-            <input id="mic-input" lang="en" type="text" onspeechchange="sayThis(this.value)"
-            onwebkitspeechchange="sayThis(this.value)" x-webkit-speech>
+            <input id="mic-input" lang="pt-br" type="text" />
           </a>
 
           <a class="share">
             <img src='img/share.png' />
           </a>
-
         </form>
+
+        <div class="recording" style="display:none;">
+          <br><p>recording...</p>
+        </div>
     </div>
 
     <div id='results'></div>
@@ -125,7 +126,7 @@
 
   <script src="libs/jquery-2.0.3.min.js"></script>
 
-  <script src='js/stream.js'></script>
-  <script src='js/app.js'></script>
+  <script async src='js/stream.min.js'></script>
+  <script src='js/app.min.js'></script>
 
 </html>
