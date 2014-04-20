@@ -19,7 +19,6 @@ $('.main').on('click', '.sound', function() {
 
 // Where magic happens :)
 function sayThis(speech) {
-
     var query = speech,
         url = 'http://gdata.youtube.com/feeds/api/videos?q=' + query + '&alt=json&max-results=20';
 
