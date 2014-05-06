@@ -71,15 +71,17 @@ $("#results").on('click', '#reSearch', function() {
 var screenStatus = 0;
 
 // Launch Full Screen function
-function launchFullScreen(element) {
+function launchFullScreen() {
+    var element = document.querySelector('body');
+
     if (element.requestFullscreen) {
         element.requestFullscreen();
     } else if (element.mozRequestFullScreen) {
         element.mozRequestFullScreen();
-    } else if (element.webkitRequestFullscreen) {
-        element.webkitRequestFullscreen();
     } else if (element.msRequestFullscreen) {
         element.msRequestFullscreen();
+    } else if (element.webkitRequestFullscreen) {
+        element.webkitRequestFullscreen();
     }
 
     screenStatus = 1;
@@ -101,7 +103,7 @@ function exitFullscreen() {
 // Set or exit Full Screen
 $('#screen').click(function() {
     if (screenStatus === 0) {
-        launchFullScreen(document.querySelector('html'));
+        launchFullScreen();
         $(this).prop('title', 'Exit full screen');
         $(this).html('<img src="img/icon-fullscreen_exit-128.png" height="35">');
     } else {
