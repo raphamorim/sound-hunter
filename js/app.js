@@ -1,3 +1,6 @@
+// If browser is chrome
+var is_chrome = window.chrome;
+
 // Speech Functions
 var recognition = new webkitSpeechRecognition();
 recognition.onstart = function() {
@@ -20,15 +23,13 @@ $('.main').on('click', '.sound', function() {
 // Where magic happens :)
 function sayThis(speech) {
     var query = speech,
-        url = 'http://gdata.youtube.com/feeds/api/videos?q=' + query + '&alt=json&max-results=20';
+        url = 'http://gdata.youtube.com/feeds/api/videos?q=' + query
+                + '&alt=json&max-results=20';
 
     $.getJSON(url, function(data) {
-
-        var feed = data.feed;
-        var entries = feed.entry || [];
-        var results = [];
-
-        console.log(query);
+        var feed = data.feed,
+            entries = feed.entry || [],
+            results = [];
 
         results = '<a id="reSearch">Try another music</a><br><br><br>';
 
@@ -67,22 +68,19 @@ $("#results").on('click', '#reSearch', function() {
     });
 });
 
-// Full Screen status
-var screenStatus = 0;
-
 // Launch Full Screen function
 function launchFullScreen() {
-    if (document.requestFullscreen) {
-        document.requestFullscreen();
-    } else if (document.mozRequestFullScreen) {
-        document.mozRequestFullScreen();
-    } else if (document.msRequestFullscreen) {
-        document.msRequestFullscreen();
-    } else if (document.webkitRequestFullscreen) {
-        document.webkitRequestFullscreen();
-    }
+    var el = document.querySelector('html');
 
-    screenStatus = 1;
+    if (el.requestFullscreen) {
+        el.requestFullscreen();
+    } else if (el.mozRequestFullScreen) {
+        el.mozRequestFullScreen();
+    } else if (el.msRequestFullscreen) {
+        el.msRequestFullscreen();
+    } else if (el.webkitRequestFullscreen) {
+        el.webkitRequestFullscreen();
+    }
 }
 
 // Exit Full Screen function
@@ -94,13 +92,11 @@ function exitFullscreen() {
     } else if (document.webkitExitFullscreen) {
         document.webkitExitFullscreen();
     }
-
-    screenStatus = 0;
 }
 
 // Set or exit Full Screen
 $('#screen').click(function() {
-    if (screenStatus === 0) {
+    if (document.webkitFullscreenElement === null) {
         launchFullScreen();
         $(this).prop('title', 'Exit full screen');
         $(this).html('<img src="img/icon-fullscreen_exit-128.png" height="35">');
