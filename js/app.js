@@ -1,6 +1,13 @@
 // If browser is chrome
 var is_chrome = window.chrome;
 
+window.onload = function(){
+    if(!is_chrome) {
+        $('h3').text('This is an experiment for chrome, please use the chrome as browser');
+        $('.search').hide();
+    }
+}
+
 // Speech Functions
 var recognition = new webkitSpeechRecognition();
 recognition.onstart = function() {
@@ -96,7 +103,9 @@ function exitFullscreen() {
 
 // Set or exit Full Screen
 $('#screen').click(function() {
-    if (document.webkitFullscreenElement === null) {
+    var fullscreenStatus = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
+
+    if (fullscreenStatus === null) {
         launchFullScreen();
         $(this).prop('title', 'Exit full screen');
         $(this).html('<img src="img/icon-fullscreen_exit-128.png" height="35">');
