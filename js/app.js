@@ -72,16 +72,14 @@ var screenStatus = 0;
 
 // Launch Full Screen function
 function launchFullScreen() {
-    var element = document.querySelector('body');
-
-    if (element.requestFullscreen) {
-        element.requestFullscreen();
-    } else if (element.mozRequestFullScreen) {
-        element.mozRequestFullScreen();
-    } else if (element.msRequestFullscreen) {
-        element.msRequestFullscreen();
-    } else if (element.webkitRequestFullscreen) {
-        element.webkitRequestFullscreen();
+    if (document.requestFullscreen) {
+        document.requestFullscreen();
+    } else if (document.mozRequestFullScreen) {
+        document.mozRequestFullScreen();
+    } else if (document.msRequestFullscreen) {
+        document.msRequestFullscreen();
+    } else if (document.webkitRequestFullscreen) {
+        document.webkitRequestFullscreen();
     }
 
     screenStatus = 1;
