@@ -1,9 +1,11 @@
-// If browser is chrome
+'use_strict';
+
 var is_chrome = window.chrome;
 
 // How to obtain the api key
 // https://developers.google.com/youtube/v3/getting-started
-var api_key = 'my-api-key';
+// It's no problem use this API_KEY, cause refers a one non-sense google account
+var api_key = 'AIzaSyDQoWn4O8fOmSBEmmD5iDumL62UjOn-4n4';
 
 window.onload = function(){
     if(!is_chrome) {
