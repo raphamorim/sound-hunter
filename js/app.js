@@ -1,5 +1,11 @@
-// If browser is chrome
+'use_strict';
+
 var is_chrome = window.chrome;
+
+// How to obtain the api key
+// https://developers.google.com/youtube/v3/getting-started
+// It's no problem use this API_KEY, cause refers a one non-sense google account
+var api_key = 'AIzaSyDQoWn4O8fOmSBEmmD5iDumL62UjOn-4n4';
 
 window.onload = function(){
     if(!is_chrome) {
@@ -19,7 +25,7 @@ recognition.onend = function() {
     $('.recording').fadeOut(300);
 };
 recognition.onresult = function(event) {
-    sayThis(event.results[0][0].transcript);
+    sayThis(event.results[0][0].transcript, api_key);
 };
 
 // Btn to start get audio function
@@ -28,33 +34,28 @@ $('.main').on('click', '.sound', function() {
 });
 
 // Where magic happens :)
-function sayThis(speech) {
-    var query = speech,
-        url = 'http://gdata.youtube.com/feeds/api/videos?q=' + query
-                + '&alt=json&max-results=20';
+function sayThis(speech, api_key) {
+    var url = 'https://www.googleapis.com/youtube/v3/search?key='+api_key+
+                '&part=snippet&q='+speech+'&maxResults=20&type=video&videoCategoryId=10';
 
     $.getJSON(url, function(data) {
-        var feed = data.feed,
-            entries = feed.entry || [],
-            results = [];
+        var items = data.items || [];
+        var results = [];
 
-        results = '<a id="reSearch">Try another music</a><br><br><br>';
+        results.push('<a id="reSearch">Try another music</a><br><br><br>');
 
-        for (var i = 0; i < entries.length; i++) {
-            var entry = entries[i];
-            var title = entry.title.$t;
-            var thumb = entry.media$group.media$thumbnail[0].url;
-            var file = entry.media$group.media$content[0].url;
-
-            if (entry.category[1].term === "Music")
-                results += '<p videoid="' + file + '" ><img src="' + thumb + '"/>' +
-                    '<br>' + title.substring(0, 60); + '</p>';
-
+        var i;
+        for (i in items) {
+            var item    = items[i];
+            var snippet = item.snippet;
+            var thumb   = snippet.thumbnails.default.url;
+            var file    = 'http://youtube.com/v/'+item.id.videoId;
+            results.push('<p videoid="' + file + '" ><img src="' + thumb + '"/>' + '<br>' + snippet.title.substring(0, 60) + '</p>');
         }
 
         $('footer').hide();
         $('.search').fadeOut(300, function() {
-            $('#results').fadeIn(2000).css('margin-top', '40px').html(results);
+            $('#results').fadeIn(2000).css('margin-top', '40px').html(results.join(''));
         });
     });
 }
